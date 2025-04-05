@@ -1,4 +1,3 @@
-import 'package:cine_verse/app/pages/dashboard_page/sub_pages/home_page/widget/categories_list.dart';
 import 'package:cine_verse/app/themes/app_colors.dart';
 import 'package:cine_verse/app/themes/app_styles.dart';
 import 'package:cine_verse/app/utils/dimensions.dart';
@@ -6,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_hooks/flutter_hooks.dart';
 
+import '../../../../../common_widgets/app_tab_bar.dart';
 import 'movies_slider.dart';
 
 class HomePageBody extends HookWidget {
@@ -20,7 +20,15 @@ class HomePageBody extends HookWidget {
         child: Column(
           children: [
             const SizedBox(height: height10),
-            CategoriesList(selectedCategoryIndex: selectedCategoryIndex),
+            AppTabBar(
+              selectedIndex: selectedCategoryIndex,
+              values: const [
+                'Top Rated',
+                'Popular',
+                'Now Playing',
+                'Upcoming',
+              ],
+            ),
             const SizedBox(height: height30),
             Row(
               children: [

@@ -11,14 +11,13 @@ class DashboardPageBody extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ValueNotifier<int> selectedIndex = useState(0);
+    final ValueNotifier<int> selectedIndex = useState(3);
     List<Widget> pages = [
       const HomePage(),
       const TvShowsPage(),
       const MoviesPage(),
       const MyListPage(),
     ];
-
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [

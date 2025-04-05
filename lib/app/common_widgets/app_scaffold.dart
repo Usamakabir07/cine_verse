@@ -67,8 +67,8 @@ class AppScaffold extends StatelessWidget {
                               onTap: onTap ?? context.router.maybePop,
                               child: Center(
                                 child: Icon(
-                                  Icons.arrow_back_ios,
-                                  color: leadingIconColor ?? AppColors.black,
+                                  Icons.arrow_back,
+                                  color: leadingIconColor ?? AppColors.white,
                                 ),
                               ),
                             ),

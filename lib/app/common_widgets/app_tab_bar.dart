@@ -4,42 +4,41 @@ import 'package:cine_verse/app/utils/dimensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-class CategoriesList extends HookWidget {
-  const CategoriesList({super.key, required this.selectedCategoryIndex});
-  final ValueNotifier<int> selectedCategoryIndex;
+class AppTabBar extends HookWidget {
+  const AppTabBar({
+    super.key,
+    required this.selectedIndex,
+    required this.values,
+  });
+  final ValueNotifier<int> selectedIndex;
+  final List<String> values;
 
   @override
   Widget build(BuildContext context) {
-    List<String> categories = [
-      'Top Rated',
-      'Popular',
-      'Now Playing',
-      'Upcoming',
-    ];
     return SizedBox(
       height: height32,
       width: MediaQuery.of(context).size.width,
       child: ListView.builder(
-        itemCount: 4,
+        itemCount: values.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return GestureDetector(
-            onTap: () => selectedCategoryIndex.value = index,
+            onTap: () => selectedIndex.value = index,
             child: Container(
               padding: const EdgeInsets.symmetric(
                   horizontal: padding14, vertical: padding1),
               margin: const EdgeInsets.symmetric(horizontal: padding6),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(borderRadius12),
-                color: selectedCategoryIndex.value == index
+                color: selectedIndex.value == index
                     ? AppColors.gamboge
                     : AppColors.blueGrey.withOpacity(double016),
               ),
               alignment: Alignment.center,
               child: Text(
-                categories[index],
+                values[index],
                 style: AppStyles.labelMedium.copyWith(
-                  color: selectedCategoryIndex.value == index
+                  color: selectedIndex.value == index
                       ? AppColors.blackPearl
                       : AppColors.white,
                 ),

@@ -83,7 +83,7 @@ class LoginPageBody extends HookWidget {
                 color: AppColors.gamboge,
                 width: MediaQuery.of(context).size.width * double09,
                 onPressed: () {
-                  if (formKey.currentState!.validate()) {
+                  if (!formKey.currentState!.validate()) {
                     context.router.push(
                       const DashboardRoute(),
                     );
